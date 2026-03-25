@@ -455,6 +455,59 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="card-body">
+                    <!-- Replace the entire <form> section in #contact -->
+                    <form id="leadForm">
+                      <!-- Your existing form fields -->
+                      <div class="p pb-3"><strong>Get my resume by sharing your contact info</strong></div>
+
+                      <div class="row mb-3">
+                        <div class="col">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+                            <input class="form-control" type="text" name="name" placeholder="Full Name *" required/>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <div class="col">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                            <input class="form-control" type="email" name="email" placeholder="Email Address *" required/>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <div class="col">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                            <input class="form-control" type="tel" name="phone" placeholder="Phone (Optional)"/>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col">
+                          <button class="btn btn-primary btn-lg btn-block" type="submit">
+                            <span class="download-text">Download Resume</span>
+                            <span class="loading-text" style="display:none;">Processing...</span>
+                          </button>
+                        </div>
+                      </div>
+                      <!--
+                      <div class="row">
+                        <div class="col">
+                          <button class="btn btn-primary btn-lg btn-block" type="submit">
+                            <span class="download-text">📥 Download Resume</span>
+                            <span class="loading-text">⏳ Processing...</span>
+                          </button>
+                        </div>
+                      </div>
+                      -->
+                    </form>
+
+                    <!--
                     <form action="https://formspree.io/your@email.com" method="POST">
                       <div class="p pb-3"><strong>Feel free to contact me </strong></div>
                       <div class="row mb-3">
@@ -491,6 +544,8 @@
                         </div>
                       </div>
                     </form>
+                    -->
+
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -510,7 +565,8 @@
       </div>
     </div>
   </div>
-</div></div>
+</div>
+      </div>
     </div>
     <footer class="footer">
       <div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div>
@@ -525,5 +581,8 @@
     <script src="js/now-ui-kit.js?ver=1.1.0"></script>
     <script src="js/aos.js?ver=1.1.0"></script>
     <script src="scripts/main.js?ver=1.1.0"></script>
+    <!-- Remove the old <script> block completely and add this -->
+    <script src="js/resume-download.js"></script>
+
   </body>
 </html>
