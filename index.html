@@ -924,6 +924,7 @@ appreciate your efforts on behalf of our customers and our company.</p>
     </div>
   </div>
 </div>
+
 <div class="section" id="contact">
   <div class="cc-contact-information" style="background-image: url('images/staticmap.png')">
     <div class="container">
@@ -931,15 +932,14 @@ appreciate your efforts on behalf of our customers and our company.</p>
         <div class="row">
           <div class="col-md-9">
             <div class="card mb-0" data-aos="zoom-in">
-              <div class="h4 text-center title">Contact Me</div>
+              <div class="h4 text-center title pt-4">Contact Me</div>
               <div class="row">
                 <div class="col-md-6">
                   <div class="card-body">
-                    <!-- Replace the entire <form> section in #contact -->
-                    <form id="leadForm">
-                      <!-- Your existing form fields -->
-                      <div class="p pb-3"><strong>Get my resume by sharing your contact info</strong></div>
+                    <div class="p pb-3"><strong>Verify your email to download my resume</strong></div>
 
+                    <form id="leadForm" action="https://formspree.io" method="POST">
+                      <!-- Name Field -->
                       <div class="row mb-3">
                         <div class="col">
                           <div class="input-group">
@@ -949,15 +949,17 @@ appreciate your efforts on behalf of our customers and our company.</p>
                         </div>
                       </div>
 
+                      <!-- Email Field -->
                       <div class="row mb-3">
                         <div class="col">
                           <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                            <input class="form-control" type="email" name="email" placeholder="Email Address *" required/>
+                            <input class="form-control" type="email" id="contact-email" name="email" placeholder="Email Address *" required/>
                           </div>
                         </div>
                       </div>
 
+                      <!-- Phone Field (Optional) -->
                       <div class="row mb-3">
                         <div class="col">
                           <div class="input-group">
@@ -966,74 +968,47 @@ appreciate your efforts on behalf of our customers and our company.</p>
                           </div>
                         </div>
                       </div>
+
+                      <!-- Message Field -->
                       <div class="row mb-3">
                         <div class="col">
                           <div class="form-group">
-                            <textarea class="form-control" name="message"  placeholder="Your Message" required="required"></textarea>
+                            <textarea class="form-control" name="message" placeholder="Your Message" required></textarea>
                           </div>
                         </div>
                       </div>
 
-                      <div class="row">
+                      <!-- OTP Verification Field (Hidden until Send OTP clicked) -->
+                      <div class="row mb-3" id="otp-group" style="display: none;">
                         <div class="col">
-                          <button class="btn btn-primary" type="submit"  data-aos="fade-right"  >
-                            <span class="download-text">Download Resume/ Send Message</span>
+                          <div class="input-group border border-success rounded">
+                            <input class="form-control" type="text" id="otp-input" placeholder="Enter 4-Digit OTP"/>
+                            <button class="btn btn-success m-0" type="button" onclick="verifyOTP()">Verify</button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Action Buttons -->
+                      <div class="row">
+                        <div class="col d-flex gap-2">
+                          <!-- Send OTP Button (Beside Send Message) -->
+                          <button class="btn btn-info mr-2" type="button" id="send-otp-btn" onclick="sendOTP()">
+                            Send OTP
+                          </button>
+
+                          <!-- Send Message Button -->
+                          <button class="btn btn-primary" type="submit" id="submit-btn" disabled>
+                            <span class="download-text">Send Message</span>
                             <span class="loading-text" style="display:none;">Processing...</span>
                           </button>
-                        </div>
-                      </div>
 
-
-                      <!--
-                      <div class="row">
-                        <div class="col">
-                          <button class="btn btn-primary btn-lg btn-block" type="submit">
-                            <span class="download-text">📥 Download Resume</span>
-                            <span class="loading-text">⏳ Processing...</span>
-                          </button>
-                        </div>
-                      </div>
-                      -->
-                    </form>
-
-                    <!--
-                    <form action="https://formspree.io/your@email.com" method="POST">
-                      <div class="p pb-3"><strong>Feel free to contact me </strong></div>
-                      <div class="row mb-3">
-                        <div class="col">
-                          <div class="input-group"><span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                            <input class="form-control" type="text" name="name" placeholder="Name" required="required"/>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row mb-3">
-                        <div class="col">
-                          <div class="input-group"><span class="input-group-addon"><i class="fa fa-file-text"></i></span>
-                            <input class="form-control" type="text" name="Subject" placeholder="Subject" required="required"/>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row mb-3">
-                        <div class="col">
-                          <div class="input-group"><span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                            <input class="form-control" type="email" name="_replyto" placeholder="E-mail" required="required"/>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row mb-3">
-                        <div class="col">
-                          <div class="form-group">
-                            <textarea class="form-control" name="message" placeholder="Your Message" required="required"></textarea>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <button class="btn btn-primary" type="submit">Send</button>
+                          <!-- Download Link -->
+                          <a class="btn btn-success" id="final-download-btn" href="assets/docs/resume-sample.pdf" download style="display: none;">
+                            <i class="fa fa-download"></i> Download
+                          </a>
                         </div>
                       </div>
                     </form>
-                    -->
 
                   </div>
                 </div>
@@ -1055,6 +1030,9 @@ appreciate your efforts on behalf of our customers and our company.</p>
     </div>
   </div>
 </div>
+
+
+
       </div>
     </div>
     <footer class="footer">
@@ -1072,8 +1050,9 @@ appreciate your efforts on behalf of our customers and our company.</p>
     <script src="js/now-ui-kit.js?ver=1.1.0"></script>
     <script src="js/aos.js?ver=1.1.0"></script>
     <script src="scripts/main.js?ver=1.1.0"></script>
-    <!-- Remove the old <script> block completely and add this -->
-    <script src="js/resume-download.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script src="js/resume_otp.js"></script>
 
   </body>
 </html>
