@@ -5284,3 +5284,11 @@ a.credit {
 /* Common Style */
 .section {
   padding-bottom: 0; }
+
+
+/* Custom Grey Color */
+.skill-list-text {
+    color: #6c757d; /* Standard Bootstrap Grey */
+    font-size: 0.85rem;
+    font-weight: 400;
+}
