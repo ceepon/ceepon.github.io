@@ -35,8 +35,8 @@ function sendOTP() {
     const otpGroup = document.getElementById('otp-group');
 
     // Validation: Require Name, Email, and Message
-    if (!nameField.value || !emailField.checkValidity() || !messageField.value) {
-        alert("Please fill in your Name, Email, and Message before requesting an OTP.");
+    if (!nameField.value || !emailField.checkValidity()) {
+        alert("Please fill in your Name and Email before requesting an OTP.");
         return;
     }
 
