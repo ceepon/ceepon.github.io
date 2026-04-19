@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 link.click();
                 document.body.removeChild(link);
 
-                alert('Message sent! Your download has started.');
+                alert('Message sent if Present ! Your download has started.');
                 form.reset();
                 btn.innerText = "Sent Successfully";
             } else {
