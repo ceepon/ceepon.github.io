@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (formResponse.ok) {
                 const link = document.createElement('a');
-                link.href = 'assets/docs/resume-sample.pdf';
+                link.href = 'assets/docs/ceepon_pradhan_resume.pdf';
                 link.download = 'Ceepon_Pradhan_CV.pdf';
                 document.body.appendChild(link);
                 link.click();
